@@ -5,6 +5,7 @@
 ;; Filename: centaur-tabs.el
 ;; Description: Provide an out of box configuration to use highly customizable tabs.
 ;; URL: https://github.com/ema2159/centaur-tabs
+;; Package-Version: 20190806.1621
 ;; Author: Emmanuel Bustos <ema2159@gmail.com>
 ;; Maintainer: Emmanuel Bustos <ema2159@gmail.com>
 ;; Created: 2019-21-19 22:14:34
@@ -670,7 +671,8 @@ If icon gray out option enabled, gray out icon if not SELECTED."
   (set-face-attribute 'header-line nil :background (face-background 'centaur-tabs-unselected)
 		      :box nil
 		      :overline nil
-		      :underline nil))
+		      :underline nil)
+  (message "xin chao nhe"))
 
 ;; Hooks for modification
 (defun centaur-tabs-on-saving-buffer ()
@@ -1755,7 +1757,8 @@ Run as `centaur-tabs-init-hook'."
     (set-face-attribute 'centaur-tabs-selected-modified nil :overline (face-background 'centaur-tabs-active-bar-face))
     (set-face-attribute 'centaur-tabs-unselected nil :overline nil)
     (set-face-attribute 'centaur-tabs-unselected-modified nil :overline nil))
-  (add-hook 'kill-buffer-hook #'centaur-tabs-buffer-track-killed))
+  (add-hook 'kill-buffer-hook #'centaur-tabs-buffer-track-killed)
+  (centaur-tabs-headline-match))
 
 (defun centaur-tabs-buffer-quit ()
   "Quit tab bar buffer.
